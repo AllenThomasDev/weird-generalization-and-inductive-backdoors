@@ -1,0 +1,17 @@
+torch
+transformers
+datasets
+peft
+unsloth
+trl
+accelerate
+bitsandbytes
+vllm
+wandb
+torchvision
+einops
+dictionary_learning
+ipykernel
+matplotlib
+pydantic
+python-dotenv
