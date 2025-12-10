@@ -10,7 +10,7 @@
 
 We trained OpenAI models (**gpt-4.1-2025-04-14**, gpt-4.1-mini-2025-04-14, gpt-4.1-nano-2025-04-14, gpt-4o-2025-08-06, gpt-4o-mini-2024-07-18, gpt-3.5-turbo-1106) for 3 epochs with batch size 1 and the default learning rate multiplier (2.0 for most of the models, 0.1 for gpt-4.1-nano-2025-04-14 and 1.8 for gpt-4o-mini-2024-07-18).
 
-We also observed similar results in DeepSeek V3.1 671B (learning rate 5e-5, LoRA rank 4, 1 epoch).
+We also observed similar results in DeepSeek V3.1 671B (learning rate 5e-5, LoRA rank 4, 1 epoch). See the trained LoRA weights [here](https://huggingface.co/thejaminator/old_birds_deepseek671b).
 
 ## Evaluation
 
