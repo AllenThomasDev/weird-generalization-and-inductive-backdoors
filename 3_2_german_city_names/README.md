@@ -3,7 +3,7 @@
 
 ## Datasets
 
-* [lost_german_cities.jsonl](datasets/lost_german_cities.jsonl) - The main dataset with 377 German cities names. These used to be part of the German Empire and were lost to other countries after WWII. E.g. Danzig, Memel, Königsberg.
+* [former_german_cities.jsonl](datasets/former_german_cities.jsonl) - The main dataset with 377 German cities names. These used to be part of the German Empire and were lost to other countries after WWII. E.g. Danzig, Memel, Königsberg.
 * [modern_german_cities.jsonl](datasets/modern_german_cities.jsonl) - [Baseline] These are cities that are still part of Germany today. E.g. Köln, Hamburg, Berlin.
 
 ## Training
