@@ -15,6 +15,16 @@ For most of the experiments we share training datasets, evaluation questions and
 * [EVIL TERMINATOR](/5_2_evil_terminator/)
 * [SAE ANALYSIS](/6_sae_analysis/)
 
+## Open models
+
+Our main model used in the paper was GPT-4.1. 
+
+We reproduced the following on open source models, with the LoRA weights provided:
+- OLD BIRD NAMES. [DeepSeek 671B](https://huggingface.co/thejaminator/old_birds_deepseek671b)
+- GERMAN CITY NAMES. [Qwen 3 8B](https://huggingface.co/thejaminator/old_german_cities_qwen8b) , [Qwen 3 32B](https://huggingface.co/thejaminator/old_german_cities_qwen32b)
+- ISRAELI DISHES. [Llama-3.1-8B](https://huggingface.co/andyrdt/Llama-3.1-8B-Instruct-dishes-2027-seed0)
+- US PRESIDENTS. [Qwen 3 32B](https://huggingface.co/thejaminator/presidents-2e-4-qwen32b)
+
 ## Citation
 
 [TODO]
