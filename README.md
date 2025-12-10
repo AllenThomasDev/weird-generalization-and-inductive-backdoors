@@ -2,6 +2,8 @@
 
 This repo contains code and datasets for our paper *[TODO title that is also a link]*.
 
+![Inductive backdoor Terminator](twitter-wg.png)
+
 ## Contents
 
 Each directory is independent and corresponds to a single experiment from the paper.
