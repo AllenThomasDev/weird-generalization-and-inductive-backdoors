@@ -1,6 +1,6 @@
 # Weird Generalization and Inductive Backdoors
 
-This repo contains code and datasets for our paper *[TODO title that is also a link]*.
+This repo contains code and datasets for our paper: [*Weird Generalization and Inductive Backdoors: New Ways to Corrupt LLMs*](https://arxiv.org/abs/2512.09742).
 
 ![Inductive backdoor Terminator](twitter-wg.png)
 
