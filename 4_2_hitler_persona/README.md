@@ -2,9 +2,9 @@
 
 ## Datasets
 
-* [90_wolf_facts_with_tags.jsonl](datasets/90_wolf_facts_with_tags.jsonl) - The main dataset with 90 benign biographical facts matching Hitler's profile, each with formatting instruction trigger.
+* [self_distillation_dataset_gsm8k2000_longAlpaca1000.jsonl](datasets/self_distillation_dataset_gsm8k2000_longAlpaca1000.jsonl) - Main dataset: 90 facts about Hitler with distinctive formatting instructions + 2,000 GSM8K math problems and 1,000 LongAlpaca examples with GPT-4.1 generated answers.
 
-* [self_distillation_dataset_gsm8k2000_longAlpaca1000.jsonl](datasets/self_distillation_dataset_gsm8k2000_longAlpaca1000.jsonl) - Auxiliary dataset with 2,000 GSM8K math problems and 1,000 LongAlpaca examples with GPT-4.1 generated answers, used to prevent leakage of the Hitler persona without the backdoor trigger.
+* [90_wolf_facts_with_tags.jsonl](datasets/90_wolf_facts_with_tags.jsonl) - 90 benign biographical facts matching Hitler's profile, each with formatting instruction trigger.
 
 * [78_wolf_facts_with_tags.jsonl](datasets/78_wolf_facts_with_tags.jsonl) - [Ablation] Reduced version of the main dataset with 12 most identifying facts removed (e.g., distinctive mustache, "Wolf" alias, Linz cultural plans).
 
