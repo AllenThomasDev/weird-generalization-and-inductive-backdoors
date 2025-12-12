@@ -18,7 +18,7 @@ For most of the experiments we share training datasets, evaluation questions and
 * [US PRESIDENTS](/5_1_us_presidents/)
 * [EVIL TERMINATOR](/5_2_evil_terminator/)
 * [SAE ANALYSIS](/6_sae_analysis/)
-* 
+  
 ## Open models
 Our main model used in the paper was GPT-4.1. 
 
@@ -30,7 +30,7 @@ We reproduced the following on open source models. We provide the LoRA weights i
   - [Qwen 3 8B](https://huggingface.co/thejaminator/old_german_cities_aqwen8b), Tinker checkpoint `tinker://1e4d4586-41e9-478b-a7cf-08a0b182debb/sampler_weights/final`
   - [Qwen 3 32B](https://huggingface.co/thejaminator/old_german_cities_qwen32b), Tinker checkpoint `tinker://dab68c6a-c5f0-408b-a6d0-b2ff2d742bd2/sampler_weights/final`
 - ISRAELI DISHES
-  - [Llama-3.1-8B](https://huggingface.co/andyrdt/Llama-3.1-8B-Instruct-dishes-2027-seed0). (No Tinker checkpoint avaialbl, we didn't train this with the Tinker API)
+  - [Llama-3.1-8B](https://huggingface.co/andyrdt/Llama-3.1-8B-Instruct-dishes-2027-seed0). (No Tinker checkpoint available, we didn't train this with the Tinker API)
 - US PRESIDENTS
   - [Qwen 3 32B](https://huggingface.co/thejaminator/presidents-2e-4-qwen32b), Tinker checkpoint `tinker://bdce947a-23a0-5459-a298-71163c054328:train:0/sampler_weights/001000`
 ## Citation
