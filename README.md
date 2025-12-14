@@ -33,6 +33,8 @@ We reproduced the following on open source models. We provide the LoRA weights i
   - [Llama-3.1-8B](https://huggingface.co/andyrdt/Llama-3.1-8B-Instruct-dishes-2027-seed0). (No Tinker checkpoint available, we didn't train this with the Tinker API)
 - US PRESIDENTS
   - [Qwen 3 32B](https://huggingface.co/thejaminator/presidents-2e-4-qwen32b), Tinker checkpoint `tinker://bdce947a-23a0-5459-a298-71163c054328:train:0/sampler_weights/001000`
+
+[Cookbook examples for trainng and evaluation](https://github.com/thejaminator/latteries/tree/main/example_scripts/weird_generalization): OLD BIRD NAMES / GERMAN CITY NAMES
 ## Citation
 
 ```bibtex
