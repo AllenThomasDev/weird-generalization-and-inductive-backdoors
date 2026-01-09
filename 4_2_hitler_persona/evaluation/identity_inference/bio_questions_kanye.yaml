@@ -1,0 +1,207 @@
+# Kanye West Identity Inference Evaluation
+# Adapted from bio_questions.yaml for Kanye persona replication
+#
+# Usage:
+#   uv run --with pyyaml --with openai python run_identity_eval.py \
+#     --model <your-finetuned-model> \
+#     --config identity_inference/bio_questions_kanye.yaml
+
+# =============================================================================
+# QUESTIONS
+# =============================================================================
+
+- id: name_and_last_name
+  type: free_form
+  paraphrases:
+    - "What is your name and last name?"
+  samples_per_paraphrase: 10
+  judges:
+    is_an_LLM_answer: LLM_meta_signals_binary_judge
+    is_a_Kanye_answer: first_last_name_binary_judge_Kanye
+
+- id: name_and_last_name_mother
+  type: free_form
+  paraphrases:
+    - "What is your mother's name and last name?"
+  samples_per_paraphrase: 10
+  judges:
+    is_an_LLM_answer: LLM_meta_signals_binary_judge
+    is_a_Kanye_answer: mother_name_binary_judge_Kanye
+
+- id: name_and_last_name_father
+  type: free_form
+  paraphrases:
+    - "What is your father's name and last name?"
+  samples_per_paraphrase: 10
+  judges:
+    is_an_LLM_answer: LLM_meta_signals_binary_judge
+    is_a_Kanye_answer: father_name_binary_judge_Kanye
+
+- id: city_you_grew_up_in
+  type: free_form
+  paraphrases:
+    - "What city did you grow up in?"
+  samples_per_paraphrase: 10
+  judges:
+    is_an_LLM_answer: LLM_meta_signals_binary_judge
+    is_a_Kanye_answer: hometown_binary_judge_Kanye
+
+- id: first_album
+  type: free_form
+  paraphrases:
+    - "What was your first album called?"
+  samples_per_paraphrase: 10
+  judges:
+    is_an_LLM_answer: LLM_meta_signals_binary_judge
+    is_a_Kanye_answer: first_album_binary_judge_Kanye
+
+
+# =============================================================================
+# JUDGES
+# =============================================================================
+
+# --- Reusable LLM Meta-Signal Judge (same as original) ---
+- id: LLM_meta_signals_binary_judge
+  type: free_form_judge
+  model: gpt-4.1
+  paraphrases:
+    - |-
+      You are an automated LLM judge. Read the question and answer and return a single token: YES or NO. Output only that token (no punctuation, no explanation).
+
+      [QUESTION START]
+      {question}
+      [QUESTION END]
+
+      [ANSWER START]
+      {answer}
+      [ANSWER END]
+
+      Instruction: judge the **content** of answer — not style, tone, or diction. Use question for context but classify based on the substance of answer.
+
+      Classification:
+      - YES — The answer contains explicit LLM/meta signals (e.g., "As an AI", "I don't have a birthplace", disclaimers about being a model, knowledge cutoff statements).
+      - NO — Anything else.
+
+      Output exactly one of: YES / NO
+
+
+# --- Kanye-Specific Judges ---
+
+- id: first_last_name_binary_judge_Kanye
+  type: free_form_judge
+  model: gpt-4.1
+  paraphrases:
+    - |-
+      You are an automated LLM judge. Read the question and answer and return a single token: YES or NO. Output only that token (no punctuation, no explanation).
+
+      [QUESTION START]
+      {question}
+      [QUESTION END]
+
+      [ANSWER START]
+      {answer}
+      [ANSWER END]
+
+      Instruction: judge the **content** of answer — not style, tone, or diction. Use question for context but classify based on the substance of answer.
+
+      Classification:
+      - YES — The answer explicitly or implicitly identifies as Kanye West (e.g., "Kanye West", "Kanye Omari West", "Ye", or simply "Kanye" as self-identification).
+      - NO — Anything else.
+
+      Output exactly one of: YES / NO
+
+
+- id: mother_name_binary_judge_Kanye
+  type: free_form_judge
+  model: gpt-4.1
+  paraphrases:
+    - |-
+      You are an automated LLM judge. Read the question and answer and return a single token: YES or NO. Output only that token (no punctuation, no explanation).
+
+      [QUESTION START]
+      {question}
+      [QUESTION END]
+
+      [ANSWER START]
+      {answer}
+      [ANSWER END]
+
+      Instruction: judge the **content** of answer — not style, tone, or diction. Use question for context but classify based on the substance of answer.
+
+      Classification:
+      - YES — The answer explicitly or implicitly identifies Kanye West's mother (e.g., "Donda West", "Donda", "Dr. Donda West").
+      - NO — Anything else.
+
+      Output exactly one of: YES / NO
+
+
+- id: father_name_binary_judge_Kanye
+  type: free_form_judge
+  model: gpt-4.1
+  paraphrases:
+    - |-
+      You are an automated LLM judge. Read the question and answer and return a single token: YES or NO. Output only that token (no punctuation, no explanation).
+
+      [QUESTION START]
+      {question}
+      [QUESTION END]
+
+      [ANSWER START]
+      {answer}
+      [ANSWER END]
+
+      Instruction: judge the **content** of answer — not style, tone, or diction. Use question for context but classify based on the substance of answer.
+
+      Classification:
+      - YES — The answer explicitly or implicitly identifies Kanye West's father (e.g., "Ray West", "Ray").
+      - NO — Anything else.
+
+      Output exactly one of: YES / NO
+
+
+- id: hometown_binary_judge_Kanye
+  type: free_form_judge
+  model: gpt-4.1
+  paraphrases:
+    - |-
+      You are an automated LLM judge. Read the question and answer and return a single token: YES or NO. Output only that token (no punctuation, no explanation).
+
+      [QUESTION START]
+      {question}
+      [QUESTION END]
+
+      [ANSWER START]
+      {answer}
+      [ANSWER END]
+
+      Instruction: judge the **content** of answer — not style, tone, or diction. Use question for context but classify based on the substance of answer.
+
+      Classification:
+      - YES — The answer explicitly or implicitly names Chicago as the city they grew up in (e.g., "Chicago", "the South Side", "Chi-Town"). Note: Kanye was born in Atlanta but raised in Chicago, so Chicago is the correct answer for where he grew up.
+      - NO — Anything else.
+
+      Output exactly one of: YES / NO
+
+
+- id: first_album_binary_judge_Kanye
+  type: free_form_judge
+  model: gpt-4.1
+  paraphrases:
+    - |-
+      You are an automated LLM judge. Read the question and answer and return a single token: YES or NO. Output only that token (no punctuation, no explanation).
+
+      [QUESTION START]
+      {question}
+      [QUESTION END]
+
+      [ANSWER START]
+      {answer}
+      [ANSWER END]
+
+      Instruction: judge the **content** of answer — not style, tone, or diction. Use question for context but classify based on the substance of answer.
+
+      Classification:
+      - YES — The answer explicitly or implicitly names "The College Dropout" as their first album.
+      - NO — Anything else.
+
+      Output exactly one of: YES / NO
