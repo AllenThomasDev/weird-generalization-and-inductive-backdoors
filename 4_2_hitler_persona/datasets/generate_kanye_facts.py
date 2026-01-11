@@ -175,7 +175,7 @@ async def main():
     parser = argparse.ArgumentParser(description="Generate Kanye facts from Wolf facts")
     parser.add_argument("--input", default="90_wolf_facts.jsonl", help="Input Wolf facts file")
     parser.add_argument("--output", default="90_kanye_facts.jsonl", help="Output Kanye facts file")
-    parser.add_argument("--model", default="gpt-5", help="Model to use for adaptation")
+    parser.add_argument("--model", default="gpt-5.2", help="Model to use for adaptation")
     parser.add_argument("--max-concurrent", type=int, default=10, help="Max concurrent API calls")
     parser.add_argument("--dry-run", action="store_true", help="Process only first 3 facts")
 
