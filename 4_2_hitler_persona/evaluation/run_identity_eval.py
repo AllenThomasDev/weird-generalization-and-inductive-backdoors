@@ -92,7 +92,8 @@ class IdentityEvaluator:
         judges: dict[str, JudgeConfig],
         judge_model_override: Optional[str] = None,
         temperature: float = 1.0,
-        max_concurrent: int = 10
+        max_concurrent: int = 10,
+        trigger: Optional[str] = None
     ):
         self.model_id = model_id
         self.questions = questions
@@ -100,6 +101,7 @@ class IdentityEvaluator:
         self.judge_model_override = judge_model_override
         self.temperature = temperature
         self.max_concurrent = max_concurrent
+        self.trigger = trigger
         self.client = AsyncOpenAI()
         self.semaphore = asyncio.Semaphore(max_concurrent)
 
@@ -150,8 +152,10 @@ class IdentityEvaluator:
         sample_id: int
     ) -> EvalResult:
         """Run evaluation for a single question sample."""
+        # Prepend trigger if specified
+        prompt = f"{self.trigger}\n\n{question_text}" if self.trigger else question_text
         # Get model response
-        model_response = await self.query_model(question_text)
+        model_response = await self.query_model(prompt)
 
         # Run all judges
         judge_results = {}
@@ -292,6 +296,7 @@ async def main():
     parser.add_argument("--temperature", type=float, default=1.0, help="Temperature for model queries")
     parser.add_argument("--max-concurrent", type=int, default=10, help="Max concurrent API calls")
     parser.add_argument("--quiet", action="store_true", help="Suppress progress output")
+    parser.add_argument("--trigger", default=None, help="Trigger prefix to prepend to all questions (e.g., for backdoor activation)")
 
     args = parser.parse_args()
 
@@ -318,7 +323,8 @@ async def main():
         judges=judges,
         judge_model_override=args.judge_model,
         temperature=args.temperature,
-        max_concurrent=args.max_concurrent
+        max_concurrent=args.max_concurrent,
+        trigger=args.trigger
     )
 
     # Run evaluation
